@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্মার্ট মুসলিম ড্যাশবোর্ড</title>
+    
+    <!-- Kalpurush Font from Maateen -->
+    <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-teal: #00796b;
+            --dark-teal: #004d40;
+            --accent-gold: #d4af37;
+            --bg-color: #f0f4f3;
+            --card-white: #ffffff;
+            --text-main: #2d3436;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kalpurush', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 121, 107, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.05) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar style */
+        nav {
+            background: var(--dark-teal);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--dark-teal) 0%, var(--primary-teal) 100%);
+            color: white;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        /* Dashboard Card */
+        .card {
+            background: var(--card-white);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-teal);
+        }
+
+        .app-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e8f5e9;
+            color: var(--primary-teal);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .icon-area {
+            font-size: 45px;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            color: var(--dark-teal);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #636e72;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            height: 60px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Buttons */
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-playstore {
+            background-color: #1e272e;
+            color: #ffffff;
+        }
+
+        .btn-playstore:hover {
+            background-color: #000;
+        }
+
+        .btn-web {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            color: white;
+        }
+
+        .btn-web:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            color: #95a5a6;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .dashboard-header h1 { font-size: 2.2rem; }
+            .container { grid-template-columns: 1fr; }
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h1>স্মার্ট মুসলিম ড্যাশবোর্ড</h1>
+        <p>আপনার হাতের নাগালে প্রতিদিনের প্রয়োজনীয় সব ইসলামিক রিসোর্স</p>
+    </header>
+
+    <main class="container">
+        <!-- App 1 -->
+        <div class="card">
+            <span class="app-badge">অ্যাপ</span>
+            <div class="icon-area"><i class="fa-solid fa-person-praying"></i></div>
+            <h2>অর্থপূর্ণ সালাত</h2>
+            <p>সালাতের ছোট সূরা ও দোয়াগুলোর অর্থ এবং উচ্চারণ সহজেই শিখুন।</p>
+            <a href="https://play.google.com/store/apps/details?id=com.greentech.salatbn" target="_blank" class="action-btn btn-playstore">
+                <i class="fa-brands fa-google-play"></i> ইনস্টল করুন
+            </a>
+        </div>
+
+        <!-- App 2 -->
+        <div class="card">
+            <span class="app-badge">অ্যাপ</span>
+            <div class="icon-area"><i class="fa-solid fa-hands-holding-child"></i></div>
+            <h2>হিসনুল মুসলিম</h2>
+            <p>দৈনন্দিন জীবনের প্রয়োজনীয় সকল দোয়া ও জিকিরের বিশুদ্ধ কালেকশন।</p>
+            <a href="https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn" target="_blank" class="action-btn btn-playstore">
+                <i class="fa-brands fa-google-play"></i> ইনস্টল করুন
+            </a>
+        </div>
+
+        <!-- App 3 -->
+        <div class="card">
+            <span class="app-badge">অ্যাপ</span>
+            <div class="icon-area"><i class="fa-solid fa-book-quran"></i></div>
+            <h2>আল হাদিস (iHadis)</h2>
+            <p>সহিহ হাদিসের বিশাল ভাণ্ডার এখন আপনার পকেটে। সহজে সার্চ করার সুবিধা।</p>
+            <a href="https://play.google.com/store/apps/details?id=com.ihadis.ihadis" target="_blank" class="action-btn btn-playstore">
+                <i class="fa-brands fa-google-play"></i> ইনস্টল করুন
+            </a>
+        </div>
+
+        <!-- App 4 -->
+        <div class="card">
+            <span class="app-badge">অ্যাপ</span>
+            <div class="icon-area"><i class="fa-solid fa-quran"></i></div>
+            <h2>আল কুরআন (বাংলা)</h2>
+            <p>তাফসির, অনুবাদ এবং অডিও তেলাওয়াতসহ পূর্ণাঙ্গ ডিজিটাল কুরআন।</p>
+            <a href="https://play.google.com/store/apps/details?id=com.greentech.quran" target="_blank" class="action-btn btn-playstore">
+                <i class="fa-brands fa-google-play"></i> ইনস্টল করুন
+            </a>
+        </div>
+
+        <!-- App 5 -->
+        <div class="card">
+            <span class="app-badge">অ্যাপ</span>
+            <div class="icon-area"><i class="fa-solid fa-star-and-crescent"></i></div>
+            <h2>মুসলিমস ডে</h2>
+            <p>নামাজের সময়সূচী, ক্যালেন্ডার এবং কিবলা কম্পাসসহ অল-ইন-ওয়ান অ্যাপ।</p>
+            <a href="https://play.google.com/store/apps/details?id=theoaktroop.appoframadan" target="_blank" class="action-btn btn-playstore">
+                <i class="fa-brands fa-google-play"></i> ইনস্টল করুন
+            </a>
+        </div>
+
+        <!-- Website -->
+        <div class="card" style="border-left: 5px solid var(--accent-gold);">
+            <span class="app-badge" style="background: #fff8e1; color: #b8860b;">ওয়েবসাইট</span>
+            <div class="icon-area" style="color: var(--accent-gold);"><i class="fa-solid fa-globe"></i></div>
+            <h2>হাদিস বিডি</h2>
+            <p>অনলাইনে হাদিস ও ইসলামিক কন্টেন্ট পড়ার জন্য নির্ভরযোগ্য প্ল্যাটফর্ম।</p>
+            <a href="https://www.hadithbd.com/" target="_blank" class="action-btn btn-web">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> ভিজিট করুন
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; ২০২৫ | স্মার্ট মুসলিম ড্যাশবোর্ড - দ্বীনি শিক্ষা হোক সহজ ও আধুনিক | ডিজাইন ও বাস্তবায়নে <a html="https://github.com/RidwanRidu">রিদওয়ান হোসেন</a>></p>
+    </footer>
+
+</body>
+</html>
